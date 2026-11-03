@@ -1,38 +1,74 @@
 ## OpenBook Data Standards
 
-Open, vendor-neutral data standards for markets. The contracts are open; every
-implementation behind them stays the implementer's own.
+Vendor-neutral data contracts for sportsbook, exchange and tokenized markets,
+with supporting tools and experimental models. The contracts are public;
+implementations, provider adapters, models, strategies and licensed data can stay
+private.
 
-Like GTFS for transit or OpenRTB for ad-tech: read the format once, consume
-every publisher.
+### Start with your goal
 
-### The standards
+**[Ecosystem onboarding guide](https://github.com/openbook-data-standards/openbook/blob/main/docs/onboarding.md)**
+· **[Project catalog and readiness](https://github.com/openbook-data-standards/openbook/blob/main/docs/ecosystem.md)**
+· **[Install agent skills](https://github.com/openbook-data-standards/openbook/blob/main/docs/agent-skills.md)**
+· **[Add a project or workflow](https://github.com/openbook-data-standards/openbook/blob/main/docs/extending-ecosystem.md)**
 
-- 📘 **OpenBook** — an open standard for sportsbook & gambling data: a
-  reference model (sport → league → season → stage → fixture), a live wire
-  (`odds/change`, `score/update`, `market/update`, `grade/create` as streamed
-  diffs), and controlled vocabularies.
-  [Specification](https://github.com/openbook-data-standards/openbook/blob/main/spec/openbook.md)
-  · [Homepage](https://openbook-data-standards.github.io/openbook/)
-  · [Schemas & vocabularies](https://github.com/openbook-data-standards/openbook)
-  · [Decision log](https://github.com/openbook-data-standards/openbook/blob/main/docs/decisions.md)
-- 🧭 **OpenVenue** — an open standard for vendor-agnostic routing of tokenized
-  markets: a canonical market schema, an equivalence layer that resolves the
-  same instrument across venues, and an all-in quote contract.
-  [Specification](https://github.com/openbook-data-standards/openvenue/blob/main/spec/openvenue.md)
+The catalog is the canonical inventory for observed versions, licenses,
+prerequisites, distribution and named blockers. Do not assume a draft has a
+published package or that sibling projects are automatically interoperable.
+Synthetic onboarding does not require a provider account, database or cloud.
 
-### What they share
+### Standards and profiles
 
-- Neutral, namespaced canonical ids owned by the standard; vendor ids live on
-  mapping records, never as canonical keys.
-- Built on ISO 8601 / 4217, CLDR territories, Wikidata ids, schema.org field
-  names and JSON Merge Patch — nothing reinvented.
+| Project | What it describes |
+| --- | --- |
+| [OpenBook](https://github.com/openbook-data-standards/openbook) | Sportsbook reference catalog, fixtures, markets, odds, scores, grades and live change envelopes. |
+| [OpenBook Betting](https://github.com/openbook-data-standards/openbook-betting) | Venue coverage and bet-order lifecycle; a draft profile with its own envelope compatibility boundary. |
+| [OpenExchange](https://github.com/openbook-data-standards/openexchange) | Exchange venues, market state, runners, back/lay depth and fees. |
+| [OpenVenue](https://github.com/openbook-data-standards/openvenue) | Tokenized market identity, equivalence, order books and all-in quote contracts. |
 
-### Get involved
+These contracts are drafts, not hosted feeds, routers or execution services.
+Specification material is CC BY 4.0; consult each repository's license and
+normative source before implementing.
 
-Open a [proposal](https://github.com/openbook-data-standards/openbook/issues/new?labels=proposal)
-or start a [discussion](https://github.com/openbook-data-standards/openbook/discussions).
-The specifications are licensed **CC BY 4.0**; implementations may be fully proprietary.
+### Implementation tools
 
-> OpenBook: **v0.3.0-draft** — the model is settled; the wire may still change
-> before 1.0. OpenVenue: **v0.0.1-draft** — early working draft.
+| Project | First use |
+| --- | --- |
+| [openbook-starter](https://github.com/openbook-data-standards/openbook-starter) | Scaffold publisher/discovery documents, not a complete server. |
+| [openbook-translate](https://github.com/openbook-data-standards/openbook-translate) | Build separately maintained adapters with mapping, quarantine, gaps and envelope helpers. |
+| [openbook-js](https://github.com/openbook-data-standards/openbook-js) | Consume snapshots/streams, cache documents, optionally derive prices or bind React. Check distribution readiness before installing. |
+
+Code licensing and vendored specification licensing differ; keep attribution
+and consult each project's LICENSE/NOTICE. Private provider adapters and live
+credentials are not bundled.
+
+### Experimental models
+
+- [OpenProb](https://github.com/openbook-data-standards/openprob): Apache-2.0
+  provider-neutral forecasting and evaluation tools with synthetic examples.
+- [OpenTrack](https://github.com/openbook-data-standards/opentrack): publicly
+  readable horse-racing models. **License pending**: public visibility does not
+  grant open-source reuse/distribution rights.
+
+These standalone models do not claim conformance to OpenBook or automatic
+interoperability with other family projects.
+
+### Agents and contributors
+
+The OpenBook repository contains portable SKILL.md workflows for ecosystem
+orientation, publishing, translation, consumption, market contracts, forecasting,
+racing and contribution. See the installation guide for agent-specific setup and
+acceptance checks. Skills supply guidance, not credentials, MCP services,
+permission to execute orders, or a claim that every agent has been certified.
+
+To extend the ecosystem, add reviewed evidence to the shared catalog and a
+synthetic first-success journey using the linked extension templates. The catalog
+and skill reference are generated together to reduce drift.
+
+Read [contribution guidance](https://github.com/openbook-data-standards/openbook/blob/main/CONTRIBUTING.md)
+and the target repository's own agent rules before proposing a change. Existing
+field names, identities and contracts are not changed by onboarding work.
+
+[OpenBook homepage](https://openbook-data-standards.github.io/openbook/)
+· [Specification](https://github.com/openbook-data-standards/openbook/blob/main/spec/openbook.md)
+· [Decision log](https://github.com/openbook-data-standards/openbook/blob/main/docs/decisions.md)
